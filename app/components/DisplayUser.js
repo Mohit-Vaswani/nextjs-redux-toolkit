@@ -1,7 +1,20 @@
+"use client"
+import { useDispatch, useSelector } from "react-redux"
+import { removeUser } from "../redux/slice";
+
 const DisplayUser = () => {
+  const userData = useSelector((data)=>data.users);
+  const dispatch = useDispatch();
+
   return (
-    <div className="simpleBox">
-        <h2>DisplayUser</h2>
+    <div className="displayUsers">
+        {
+          userData.map((user, index)=>(
+            <ul key={index}>
+              <li><span>{user.name}</span><button onClick={()=>dispatch(removeUser(user.id))}>x</button></li>
+            </ul>
+          ))
+        }
     </div>
   )
 }

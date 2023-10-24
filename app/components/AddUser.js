@@ -7,15 +7,30 @@ const AddUser = () => {
   const [name, setName] = useState("");
   const dispatch = useDispatch()
 
-  const userDispatch = () => {
-    dispatch(addUser(name))
+  const handleAddUser = () => {
+    if(name.trim() !== ""){
+      dispatch(addUser(name))
+      setName("");
+    }
+  }
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter"){
+      handleAddUser()
+    }
   }
 
   return (
     <div className="simpleBox">
         <h2>Add User</h2>
-        <input type="text" placeholder="Add Users" onChange={(e)=>setName(e.target.value)}/>
-        <button onClick={userDispatch} >Add Users</button>
+        <input 
+        type="text" 
+        value={name} 
+        placeholder="Add Users" 
+        onKeyUp={handleKeyPress}
+        onChange={(e)=>setName(e.target.value)} 
+        />
+        <button onClick={handleAddUser} >Add Users</button>
     </div>
   )
 }
