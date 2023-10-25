@@ -1,7 +1,7 @@
-const { createSlice, nanoid } = require("@reduxjs/toolkit");
+const { createSlice, nanoid, current } = require("@reduxjs/toolkit");
 
 const initialState = {
-    users: []
+    users: JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
 }
 
 const Slice = createSlice({
@@ -14,6 +14,8 @@ const Slice = createSlice({
                 name: action.payload,
             }
             state.users.push(data);
+            const userData = JSON.stringify(current(state.users));
+            localStorage.setItem("users", userData);
         },
         removeUser:(state, action)=>{
             const data = state.users.filter((user) => {

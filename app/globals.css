@@ -60,7 +60,7 @@ main{
   font-size: 1.2rem;
 }
 
-.displayUsers{
+.displayUsers, .removedUsers{
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
@@ -69,7 +69,7 @@ main{
   margin-top: 1rem;
 }
 
-.displayUsers ul li{
+.displayUsers ul li, .removedUsers ul li{
   list-style: none;
   font-size: 1.3rem;
   margin-top: 1rem;
@@ -82,7 +82,7 @@ main{
   justify-content: space-between;
 }
 
-.displayUsers ul li button{
+.displayUsers ul li button, .removedUsers ul li button{
   width: 25px;
   padding-bottom: 3px;
   height: auto;
