@@ -9,7 +9,7 @@ const page = () => {
 
     return (
         <div style={{ margin: "2rem" }} >
-            <h1>Removed Users</h1>
+            <h1>Remove Users From Here</h1>
             <div className='removedUsers'>
 
                 {
